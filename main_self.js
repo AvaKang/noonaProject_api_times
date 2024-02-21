@@ -3,7 +3,7 @@ let news = [];
 
 const getLatestNews = async () => {
 	const url = new URL(
-		`https://jju-news-api.netlify.app/top-headlines`
+		`https://jju-news-api.netlify.app/top-headlines?country=kr`
 	);
 	const response = await fetch(url); //url data를 가져오는 호출 함수 fetch()
 	const data = await response.json(); //json은 객체를 텍스트화 시킨 파일 형태 확장자
@@ -18,6 +18,8 @@ const getNewsByKeyword = async () => {
 	const response = await fetch(url);
 	const data = await response.json();
 	news = data.articles;
+
+	console.log(news);
 }
 
 const getNewsByCategory = async () => {
