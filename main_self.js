@@ -2,16 +2,9 @@ const API_KEY = `ea02c6c81d7a411692d739a2f9e1dac1`;
 let newsList = [];
 const menus = document.querySelectorAll('.menus button');
 menus.forEach(menu => menu.addEventListener('click',(event) => getNewsByCategory(event))) //ES6 버전
-/* ES5버전
-menus.forEach(function(menu) {
-	menu.addEventListener('click', function(event) {
-			getNewsByCategory(event);
-	});
-}); 
-*/
 
 //뉴스 url 전역 변수 (코드 리펙토링)
-let url = new URL(`https://jju-news-api.netlify.app/top-headlines?country=kr&apiKey=${API_KEY}`);
+let url = new URL(`https://jju-api-times-error.netlify.app/top-headlines?country=kr&apiKey=${API_KEY}`);
 
 // 뉴스 가져오기
 const getNews = async () => {
@@ -36,7 +29,7 @@ const getNews = async () => {
 
 // api 가져오기
 const getLatestNews = () => {
-	url = new URL(`https://jju-news-api.netlify.app/top-headlines?country=kr&apiKey=${API_KEY}`);
+	url = new URL(`https://jju-api-times-error.netlify.app/top-headlines?country=kr&apiKey=${API_KEY}`);
 											//`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
 	getNews(url);
 };
@@ -44,7 +37,7 @@ const getLatestNews = () => {
 // 카테고리 기사 가져오기
 const getNewsByCategory = (event) => {
 	const category = event.target.textContent.toLowerCase();
-	url = new URL(`https://jju-news-api.netlify.app/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`); //카테고리 추가
+	url = new URL(`https://jju-api-times-error.netlify.app/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`); //카테고리 추가
 											//http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?category=science
 	getNews(url);
 }
@@ -52,7 +45,7 @@ const getNewsByCategory = (event) => {
 // 키워드 기사 가져오기
 const getNewsByKeyword = () => {
 	const keyword = document.getElementById('mobile-input-data').value;
-	url = new URL(`https://jju-news-api.netlify.app/top-headlines?country=kr&q=${keyword}&apiKey=${API_KEY}`); //키워드 추가
+	url = new URL(`https://jju-api-times-error.netlify.app/top-headlines?country=kr&q=${keyword}&apiKey=${API_KEY}`); //키워드 추가
 											//http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?q=아이유
 	getNews(url);
 }
