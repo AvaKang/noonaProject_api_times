@@ -135,6 +135,13 @@
 	padding:1em 0;
 }
 
+.pagination li:hover {
+	cursor: pointer;
+}
+.pagination {
+	margin-top:1em;
+}
+
 @media only screen and (max-width: 480px) {
 	.menus {
 		display:none;
